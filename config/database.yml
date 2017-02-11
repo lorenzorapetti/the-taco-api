@@ -13,8 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: fioredicampo
+  database: the-taco-api_production
+  username: <%= ENV['THE_TACO_API_DB_USERNAME'] %>
+  password: <%= ENV['THE_TACO_API_DB_PASSWORD'] %>
   socket: /tmp/mysql.sock
 
 development:
@@ -49,6 +50,3 @@ test:
 #
 production:
   <<: *default
-  database: the-taco-api_production
-  username: the-taco-api
-  password: <%= ENV['THE-TACO-API_DATABASE_PASSWORD'] %>
